@@ -14,7 +14,9 @@ The Panoptes Project is designed to leverage advanced ChatGPT 3.5 models for tex
 - Docker & Docker Compose
 
 ## Directory Structure
+
 View this in markdown view for a better view
+
 C:\Your_Docker_Directory\Panoptes_Project_2
 │ docker-compose.yml
 │ .env # remember to add your own key!
