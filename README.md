@@ -39,6 +39,15 @@ C:\Your_Docker_Directory\Panoptes_Project_2
 - Docker
 - Docker Compose
 
+## Dependencies
+
+- openai==0.10.5
+- streamlit==1.14.0
+- sqlalchemy==1.4.31
+- pandas==1.3.3
+- pymysql==1.0.2
+
+
 ## Installation
 
 1. **Clone the repo**:
@@ -61,8 +70,14 @@ Distributed under the MIT License. See LICENSE for more information.
 
 ## Acknowledgements
 
-- Hugging Face: BERT (Bidirectional Encoder Representations from Transformers) model `dbmdz/bert-large-cased-finetuned-conll03-english` is a pre-trained model available through the Hugging Face model hub.
-- Hugging Face Transformers Library
+Project Dependencies:
+- ChatGPT 3.5 API: Used for generating text based on user input.
+- Streamlit: Used for building interactive web apps.
+- SQLAlchemy: Used for database operations.
+- Pandas: Used for data manipulation and analysis.
+- Langchain-openai: Used for language processing tasks.
+- PyMySQL: Used for interfacing with MySQL databases.
+
 
 Additional Team Member's git will be added...
 
