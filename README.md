@@ -14,16 +14,23 @@ The Panoptes Project is designed to leverage advanced ChatGPT 3.5 models for tex
 - Docker & Docker Compose
 
 ## Directory Structure
-C:\Panoptes_Project_2
+C:\Your_Docker_Directory\Panoptes_Project_2
 │ docker-compose.yml
+│ .env # remember to add your own key!
+│ .gitignore
+│ wait-for-it.sh
 │ Panoptes_GPT
-├── Dockerfile
-│ ├── requirements.txt
+├── C:\Your_Docker_Directory\Panoptes_Project_2\Panoptes_GPT
+│ ├── \app.data\
+│ ├── \.streamlit\
+│ │ └──  config.toml
 │ ├── app.py
-│ └── .gitignore
-└── C:\Panoptes_Project_SQL
-  │
-  └──init.sql
+│ ├── app.txt  # output dump
+│ ├── Dockerfile
+│ ├── requirements.txt
+│ └── wait-for-it.sh
+└── C:\Your_Docker_Directory\Panoptes_Project_SQL
+    └──init.sql
 
 
 ## Prerequisites
