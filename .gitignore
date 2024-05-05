@@ -1,0 +1,11 @@
+# Ignore environment variable file
+.env
+
+# Ignore specific directories under Panoptes_GPT
+Panoptes_GPT/samples/
+Panoptes_GPT/notes/
+Panoptes_GPT/older_versions/
+Panoptes_GPT/app-data/
+
+# Ignore the entire Depricated folder
+Depricated/

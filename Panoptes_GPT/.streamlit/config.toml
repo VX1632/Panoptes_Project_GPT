@@ -1,0 +1,27 @@
+# Configuration file for Streamlit
+
+# Server settings
+[server]
+# Enables running in a Docker container without access to a browser
+headless = true
+# Disables CORS to allow your Streamlit app to be accessed from any domain
+enableCORS = false
+# Disables the protection against Cross-Site Request Forgery attacks
+enableXsrfProtection = false
+# Specifies the port Streamlit will run on
+port = 8501
+# Binds the server to listen on all network interfaces
+address = '0.0.0.0'
+
+# Browser settings
+[browser]
+# Disable the gathering of usage statistics
+gatherUsageStats = false
+
+# Logging settings
+[logger]
+# Level of logging: debug, info, warning, error
+level = 'info'
+
+# Controls the format of debug messages
+messageFormat = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'

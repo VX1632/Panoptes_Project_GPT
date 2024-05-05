@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  app:
+    build: ./Panoptes_GPT
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./Panoptes_GPT:/app
+      - ./Panoptes_GPT/app-data:/app/data
+    depends_on:
+      - mysql-db
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+
+  mysql-db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: Rum8&Tag2
+      MYSQL_DATABASE: panoptesdb
+      MYSQL_USER: teamAdmin
+      MYSQL_PASSWORD: NookBrosGotchu
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  mysql-data:
