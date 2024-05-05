@@ -10,6 +10,7 @@ services:
       - ./Panoptes_GPT/app-data:/app/data
     depends_on:
       - mysql-db
+    command: ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
 
@@ -22,6 +23,7 @@ services:
       MYSQL_PASSWORD: NookBrosGotchu
     volumes:
       - mysql-data:/var/lib/mysql
+      - ./Panoptes_SQL:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
 

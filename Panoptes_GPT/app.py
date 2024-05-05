@@ -1,69 +1,78 @@
+# Import necessary modules
 import os
-import sys
 import streamlit as st
-from langchain_openai.llms.base import OpenAI
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, DateTime
+from sqlalchemy import create_engine, Column, Integer, String, DateTime, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 import pandas as pd
 import logging
+import re
+from datetime import datetime
 
-# Logging configuration
-logging.basicConfig(
-    stream=sys.stdout,
-    format='%(asctime)s, %(name)s [%(levelname)s] %(message)s',
-    datefmt='%H:%M:%S',
-    level=logging.DEBUG
-)
-
-# Set up environment variable for API key
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-if not OPENAI_API_KEY:
-    st.error("OPENAI_API_KEY is not set. Please set it in your environment variables.")
-    raise ValueError("OPENAI_API_KEY is not set. Please set it in your environment variables.")
-os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
-llm = OpenAI(model_name="gpt-3.5-turbo-instruct", temperature=0.9)
-
-# SQLAlchemy setup for MySQL
+# Setup SQLAlchemy
 DATABASE_URL = "mysql+pymysql://teamAdmin:NookBrosGotchu@mysql-db/panoptesdb"
-engine = create_engine(DATABASE_URL, echo=True)
+engine = create_engine(DATABASE_URL, echo=True, pool_pre_ping=True)
 Base = declarative_base()
 
-# Define models
+# Define the Event model
 class Event(Base):
     __tablename__ = 'events'
     event_id = Column(Integer, primary_key=True)
-    event_name = Column(String(255), nullable=False)  # String type defaults to VARCHAR
-    description = Column(String(255), nullable=True)  # Specify a length such as 255
+    subject = Column(String(255), nullable=False)
+    start_date = Column(DateTime, nullable=False)
+    end_date = Column(DateTime, nullable=False)
+    all_day_event = Column(Boolean, default=True)
+    description = Column(String(255), nullable=True)
+    location = Column(String(255), nullable=True)
 
-
-class Location(Base):
-    __tablename__ = 'locations'
-    location_id = Column(Integer, primary_key=True)
-    city = Column(String(100), nullable=False)   # Ensure a length is specified
-    state = Column(String(100), nullable=True)
-    country = Column(String(100), nullable=False)
-
+# Create database tables
 Base.metadata.create_all(engine)
-session_factory = sessionmaker(bind=engine)
-Session = scoped_session(session_factory)
+
+# Session factory setup
+Session = scoped_session(sessionmaker(bind=engine))
 
 # Streamlit UI
-st.title('🧬 Panoptes 🧬')
-prompt = st.text_input("Submit Prompt Here!")
+st.title('🧬 Panoptes Event Logger 🧬')
+prompt = st.text_area("Enter event details here:", height=150)
 
-if st.button('Generate'):
-    response = llm.generate(prompts=[prompt])
-    full_text = " ".join([gen.text for gen in response.generations[0]])
-    st.write(full_text)
-    logging.debug(f"Generated response: {full_text}")
+if st.button('Log Events'):
+    session = Session()  # Create a session
+    try:
+        # Parsing input text to extract event details
+        date_pattern = re.compile(r'(\w+[\s\w]*?) (\d{1,2}/\d{1,2}/\d{4})')
+        matches = date_pattern.findall(prompt)
 
-    session = Session()
-    # Here, you would parse the `full_text` to extract data and add it to your database
-    # Example:
-    new_event = Event(event_name="Sample Event", description="Sample description")
-    session.add(new_event)
-    session.commit()
+        for match in matches:
+            event_description, date_str = match
+            date = datetime.strptime(date_str, '%m/%d/%Y')
+            
+            new_event = Event(
+                subject=event_description.strip(),
+                start_date=date,
+                end_date=date,
+                description=event_description.strip()
+            )
+            session.add(new_event)
 
-    Session.remove()
-    st.success('Data processed and saved to database successfully!')
+        session.commit()  # Commit the transaction
+        st.success('Events logged successfully!')
+    except Exception as e:
+        st.error(f"An error occurred: {str(e)}")
+        session.rollback()  # Rollback in case of error
+    finally:
+        session.close()  # Close the session
+
+# Display existing events
+with Session() as session:
+    existing_events = pd.read_sql(session.query(Event).statement, session.bind)
+    st.write(existing_events)
+
+    # Add button to download CSV
+    if st.button('Download CSV'):
+        csv = existing_events.to_csv(index=False)
+        st.download_button(
+            label="Download data as CSV",
+            data=csv,
+            file_name='events.csv',
+            mime='text/csv',
+        )

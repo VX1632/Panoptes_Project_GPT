@@ -1,0 +1,41 @@
+2024-05-05 16:25:03, sqlalchemy.engine.Engine [INFO] SELECT DATABASE()
+2024-05-05 16:25:03, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:03, sqlalchemy.engine.Engine [INFO] SELECT @@sql_mode
+2024-05-05 16:25:03, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:03, sqlalchemy.engine.Engine [INFO] SELECT @@lower_case_table_names
+2024-05-05 16:25:03, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:03, sqlalchemy.engine.Engine [INFO] BEGIN (implicit)
+2024-05-05 16:25:03, sqlalchemy.engine.Engine [INFO] DESCRIBE `panoptesdb`.`events`
+2024-05-05 16:25:03, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:03, sqlalchemy.engine.Engine [INFO] COMMIT
+2024-05-05 16:25:11, sqlalchemy.engine.Engine [INFO] SELECT DATABASE()
+2024-05-05 16:25:11, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:11, sqlalchemy.engine.Engine [INFO] SELECT @@sql_mode
+2024-05-05 16:25:11, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:11, sqlalchemy.engine.Engine [INFO] SELECT @@lower_case_table_names
+2024-05-05 16:25:11, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:11, sqlalchemy.engine.Engine [INFO] BEGIN (implicit)
+2024-05-05 16:25:11, sqlalchemy.engine.Engine [INFO] DESCRIBE `panoptesdb`.`events`
+2024-05-05 16:25:11, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:11, sqlalchemy.engine.Engine [INFO] COMMIT
+2024-05-05 16:25:27, sqlalchemy.engine.Engine [INFO] SELECT DATABASE()
+2024-05-05 16:25:27, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:27, sqlalchemy.engine.Engine [INFO] SELECT @@sql_mode
+2024-05-05 16:25:27, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:27, sqlalchemy.engine.Engine [INFO] SELECT @@lower_case_table_names
+2024-05-05 16:25:27, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:27, sqlalchemy.engine.Engine [INFO] BEGIN (implicit)
+2024-05-05 16:25:27, sqlalchemy.engine.Engine [INFO] DESCRIBE `panoptesdb`.`events`
+2024-05-05 16:25:27, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:27, sqlalchemy.engine.Engine [INFO] COMMIT
+2024-05-05 16:25:33, sqlalchemy.engine.Engine [INFO] SELECT DATABASE()
+2024-05-05 16:25:33, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:33, sqlalchemy.engine.Engine [INFO] SELECT @@sql_mode
+2024-05-05 16:25:33, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:33, sqlalchemy.engine.Engine [INFO] SELECT @@lower_case_table_names
+2024-05-05 16:25:33, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:33, sqlalchemy.engine.Engine [INFO] BEGIN (implicit)
+2024-05-05 16:25:33, sqlalchemy.engine.Engine [INFO] DESCRIBE `panoptesdb`.`events`
+2024-05-05 16:25:33, sqlalchemy.engine.Engine [INFO] [raw sql] {}
+2024-05-05 16:25:33, sqlalchemy.engine.Engine [INFO] COMMIT
+2024-05-05 16:25:34, httpx [INFO] HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 200 OK"
