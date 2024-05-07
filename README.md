@@ -80,8 +80,10 @@ Project Dependencies:
 - Langchain-openai: Used for language processing tasks.
 - PyMySQL: Used for interfacing with MySQL databases.
 
-
-Additional Team Member's git will be added...
+Brian Chen/VX1632
+Jean-Pierre Martinez/jpmartinez10
+Ina Shanelle Noceja/hurinah
+Justin Ross/jross1092
 
 **Source:**
 
