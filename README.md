@@ -1,5 +1,11 @@
 # Panoptes Project
 
+## Authors
+- Brian Chen/VX1632
+- Jean-Pierre Martinez/jpmartinez10
+- Ina Shanelle Noceja/hurinah
+- Justin Ross/jross1092
+
 ## Overview
 The Panoptes Project is designed to leverage advanced ChatGPT 3.5 models for text analysis and connect seamlessly with a MySQL database for data management. This project uses Docker containers to ensure easy setup and reproducibility.
 
@@ -79,11 +85,6 @@ Project Dependencies:
 - Pandas: Used for data manipulation and analysis.
 - Langchain-openai: Used for language processing tasks.
 - PyMySQL: Used for interfacing with MySQL databases.
-
-Brian Chen/VX1632
-Jean-Pierre Martinez/jpmartinez10
-Ina Shanelle Noceja/hurinah
-Justin Ross/jross1092
 
 **Source:**
 
