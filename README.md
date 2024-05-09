@@ -41,7 +41,6 @@ C:\Your_Docker_Directory\Panoptes_Project_2
 └── C:\Your_Docker_Directory\Panoptes_Project_SQL
     └──init.sql
 
-
 ## Prerequisites
 
 - Docker
@@ -64,7 +63,11 @@ git clone https://github.com/your_username/Panoptes_Project_GPT.git
 2. **Navigate to the project directory**:
 cd Panoptes_Project
 
-3. **Start the services**:
+3. Create a .env file
+Add the following line without any quotation marks: 
+OPENAI_API_KEY="your api key here"
+
+5. **Start the services**:
 docker-compose up --build
 
 
